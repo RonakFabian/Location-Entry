@@ -61,11 +61,11 @@ const EditTaskPopup = ({ modal, toggle, updateTask, taskObj }) =>
                 </div>
                 <div className="form-group">
                     <label>Latitude</label>
-                    <input type="text" className="form-control" value={latitude} onChange={handleChange} name="latitude" />
+                    <input type="number" className="form-control" value={latitude} onChange={handleChange} name="latitude" />
                 </div>
                 <div className="form-group">
                     <label>Longitude</label>
-                    <input type="text" className="form-control" value={longitude} onChange={handleChange} name="longitude" />
+                    <input type="number" className="form-control" value={longitude} onChange={handleChange} name="longitude" />
                 </div>
                 <div className="form-group">
                     <label>Description</label>
