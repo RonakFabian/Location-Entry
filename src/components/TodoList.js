@@ -7,6 +7,7 @@ const TodoList = () =>
 {
     const [modal, setModal] = useState(false);
     const [taskList, setTaskList] = useState([])
+    const [search, setSearch] = useState('')
 
     useEffect(() =>
     {
@@ -55,12 +56,16 @@ const TodoList = () =>
 
     return (
         <>
+            <div class="input-group p-2">
+                <input type="search" onChange={(e) => setSearch(e.target.value)} class="form-control rounded" placeholder="Search Entry.." aria-label="Search" aria-describedby="search-addon" />
+                <button type="button" class="btn btn-primary">    <i class="fas fa-search"></i></button>
+            </div>
             <div className="header text-center">
                 <h3>Location Entry</h3>
                 <button className="btn btn-primary mt-2" onClick={() => setModal(true)} ><AiOutlinePlusSquare /> Create Task</button>
             </div>
             <div className="container justify-content-center">
-                {taskList && taskList.map((obj, index) => <Card taskObj={obj} index={index} deleteTask={deleteTask} updateListArray={updateListArray} />)}
+                {taskList && taskList.filter((obj) => { return search.toLowerCase === '' ? obj : (obj.Name.toLowerCase().includes(search) || obj.Description.toLowerCase().includes(search)); }).map((obj, index) => <Card taskObj={obj} index={index} deleteTask={deleteTask} updateListArray={updateListArray} />)}
             </div>
             <CreateTask toggle={toggle} modal={modal} save={saveTask} />
         </>
