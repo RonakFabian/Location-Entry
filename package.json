@@ -10,6 +10,7 @@
     "bootstrap": "^4.5.3",
     "bootstrap-icons": "^1.10.4",
     "font-awesome": "^4.7.0",
+    "gh-pages": "^5.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-icons": "^4.8.0",
